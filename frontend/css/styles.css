@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Nova header branca */
+.top-header {
+    background-color: white;
+    padding: 15px 60px;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container img {
+    width: 180px;
+}
+
+.search-container input {
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.dashboard-container {
+    display: flex;
+    align-items: center;
+}
+
+#dashboard-btn {
+    background-color: #3A9943;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#dashboard-btn:hover {
+    background-color: #66BB6A;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+}
+
+/* Header verde abaixo */
+header {
+    background-color: #3A9943;
+    padding: 40px 60px;
+    color: white;
+}
+
+/* Abas do dashboard */
+.nav-tabs {
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+    padding: 10px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab-link {
+    background-color: white;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-link.active, .tab-link:hover {
+    background-color: white;
+    color: #3A9943;
+    border-color: #3A9943;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Grid para as ofertas personalizadas */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.car-details {
+    text-align: left;
+}
+
+.brand {
+    font-size: 1.2rem;
+    color: #FF9900; /* Laranja Localiza Seminovos */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.specs {
+    font-size: 1rem;
+    color: #999;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.location {
+    font-size: 1rem;
+    color: #777;
+}
+
+.location img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.car-options {
+    margin-top: 10px;
+}
+
+.car-options input {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    accent-color: #FF9900; /* Cor laranja */
+    border: 2px solid #FF9900;
+    cursor: pointer;
+}
+
+.car-options input:checked {
+    background-color: #FF9900;
+    border: 2px solid #FF9900;
+}
+
+.car-options input:checked:before {
+    color: white;
+}
+
+.favorite {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    margin-left: 15px;
+}
+
+.favorite img {
+    width: 16px;
+    height: 16px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #3A9943;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .header-left h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-left p {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    #dashboard-btn {
+        padding: 8px 15px;
+    }
+
+    .menu-icon .bar {
+        width: 20px;
+        height: 2px;
+    }
+}

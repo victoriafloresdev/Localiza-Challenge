@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Cliente - Localiza</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Nova header branca -->
+    <div class="top-header">
+        <div class="top-header-content">
+            <div class="logo-container">
+                <img src="https://seminovos.localiza.com/logo.svg" alt="Logo Localiza Seminovos">
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Buscar veículos...">
+            </div>
+            <div class="dashboard-container">
+                <button id="dashboard-btn">Meu Dashboard</button>
+                <div class="menu-icon">
+                    <img src="https://seminovos.localiza.com/assets/icons/menu.svg" alt="Menu icon">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header verde abaixo -->
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <h1>Bem-vindo ao seu Dashboard, Salim</h1>
+                <p>Acompanhe suas ofertas, carros favoritados e negociações em andamento.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Abas de navegação -->
+    <nav class="nav-tabs">
+        <button class="tab-link active" onclick="openTab(event, 'ofertas-personalizadas')">Ofertas Personalizadas</button>
+        <button class="tab-link" onclick="openTab(event, 'favoritos')">Favoritos</button>
+        <button class="tab-link" onclick="openTab(event, 'simulacao')">Simulação de Financiamento</button>
+        <button class="tab-link" onclick="openTab(event, 'negociacoes')">Negociações</button>
+        <button class="tab-link" onclick="openTab(event, 'chat')">Chat</button>
+    </nav>
+
+    <main>
+        <!-- Seção de Ofertas Personalizadas (aberta por padrão) -->
+        <section class="tab-content active" id="ofertas-personalizadas">
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="https://cdn-site-seminovos.localiza.com/site/anuncio/125862/thumb_f56f5fe5-bff7-4b17-84c0-1bb1a3d114ba.jpg" alt="Foto do carro">
+                    <div class="car-details">
+                        <span class="brand">CHEVROLET</span>
+                        <h3>ONIX PLUS PREMIER II 1.0</h3>
+                        <p class="specs">50.000 km | 2023/2024 | Manual</p>
+                        <p class="price">R$ 45.000</p>
+                        <p class="location">
+                            <img src="https://seminovos.localiza.com/assets/icons/card-vehicle-component/map-pin.svg" alt="Location icon">
+                            Belo Horizonte - MG
+                        </p>
+                        <div class="car-options">
+                            <img src="https://seminovos.localiza.com/assets/icons/heart.svg" class="favorite" alt="Favorito" onclick="toggleFavorite(this)" style="width: 32px; height: 32px; float: right; margin-left: 36px;">
+                            <label for="compare1" style="float: left; display: flex; align-items: center;">
+                                <input type="checkbox" id="compare1" style="margin-right: 16px;"> Comparar carro
+                            </label>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="https://cdn-site-seminovos.localiza.com/site/anuncio/149473/thumb_e1cc9370-23eb-478f-9dde-c1ee6465ac59.jpg" alt="Foto do carro">
+                    <div class="car-details">
+                        <span class="brand">VOLKSWAGEN</span>
+                        <h3>NIVUS HIGHLINE 1.0</h3>
+                        <p class="specs">30.000 km | 2019 | Automático</p>
+                        <p class="price">R$ 50.000</p>
+                        <p class="location">
+                            <img src="https://seminovos.localiza.com/assets/icons/card-vehicle-component/map-pin.svg" alt="Location icon">
+                            Betim - MG
+                        </p>
+                        <div class="car-options">
+                            <img src="https://seminovos.localiza.com/assets/icons/heart.svg" class="favorite" alt="Favorito" onclick="toggleFavorite(this)" style="width: 32px; height: 32px; float: right; margin-left: 36px;">
+                            <label for="compare1" style="float: left; display: flex; align-items: center;">
+                                <input type="checkbox" id="compare1" style="margin-right: 16px;"> Comparar carro
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Favoritos -->
+        <section class="tab-content" id="favoritos" style="display:none;">
+            <div class="card">
+                <h3>Veículo: Corolla XEI 2.0</h3>
+                <p>Preço: R$ 80.000</p>
+                <button>Ver Detalhes</button>
+            </div>
+        </section>
+
+        <!-- Seção de Simulação de Financiamento -->
+        <section class="tab-content" id="simulacao" style="display:none;">
+            <div class="card">
+                <h3>Veículo: HB20 1.6 Comfort</h3>
+                <p>Simulação: Entrada R$ 12.000 + 36x R$ 1.300</p>
+                <button>Revisar Simulação</button>
+            </div>
+        </section>
+
+        <!-- Seção de Negociações -->
+        <section class="tab-content" id="negociacoes" style="display:none;">
+            <div class="card">
+                <h3>Negociação: Corolla XEI 2.0</h3>
+                <p>Documentos Faltantes: Comprovante de Renda</p>
+                <p>Status de Financiamento: Em Análise</p>
+                <button>Acompanhar</button>
+            </div>
+        </section>
+
+        <!-- Seção de Chat -->
+        <section class="tab-content" id="chat" style="display:none;">
+            <p>Entre em contato com nossa equipe pelo chat para tirar dúvidas e receber assistência.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Localiza. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para abrir as abas do dashboard
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Função para marcar o carro como favorito
+        function toggleFavorite(element) {
+            if (element.src.includes("heart.svg")) {
+                element.src = "https://seminovos.localiza.com/assets/icons/heart-orange.svg";
+            } else {
+                element.src = "https://seminovos.localiza.com/assets/icons/heart.svg";
+            }
+        }
+    </script>
+</body>
+</html>
