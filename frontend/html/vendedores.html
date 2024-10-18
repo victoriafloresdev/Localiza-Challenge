@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="favicon.png?v=3">
+    
+    <title>Dashboard Vendedores - Localiza</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Adicionando Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Adicionando estilo para a barra de input */
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .input-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+
+        .input-container button {
+            background-color: #3A9943;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-container button:hover {
+            background-color: #66BB6A;
+        }
+
+        .search-bar {
+            margin-left: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 300px; /* Ajuste a largura conforme necessário */
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+            font-size: 16px; /* Tamanho do ícone */
+        }
+    </style>
+</head>
+<body>
+    <!-- Nova header branca -->
+    <div class="top-header">
+        <div class="top-header-content">
+            <div class="logo-container">
+                <img src="https://seminovos.localiza.com/logo.svg" alt="Logo Localiza Seminovos">
+            </div>
+            <div class="dashboard-container">
+                <input type="text" class="search-bar" placeholder="Pesquisar Lead ou Cliente...">
+                <button id="dashboard-btn">Meu Dashboard</button>
+                <div class="menu-icon">
+                    <img src="https://seminovos.localiza.com/assets/icons/menu.svg" alt="Menu icon">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header verde abaixo -->
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <h1>João da Silva</h1> <!-- Nome do lead pesquisado -->
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i> 
+                    <span>Contato: (31) 9999-9999 | (31) 8888-8888 | joao.silva@example.com</span> <!-- Dados de contato do lead -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Abas de navegação -->
+    <nav class="nav-tabs">
+        <button class="tab-link active" onclick="openTab(event, 'perfil-do-lead')">Perfil do Lead</button>
+        <button class="tab-link" onclick="openTab(event, 'scripts-personalizados')">Assistente de Vendas</button>
+    </nav>
+
+    <main>
+        <!-- Seção de Perfil do Lead (aberta por padrão) -->
+        <section class="tab-content active" id="perfil-do-lead">
+            <h2>Perfil do Lead</h2>
+            <div class="lead-details">
+                <p><strong>Nome do Lead:</strong> João da Silva</p>
+                <p><strong>Estágio de Negociação:</strong> Em Andamento</p>
+                <p><strong>Temperatura do Lead:</strong> Quente</p>
+                <p><strong>Interesses:</strong> SUV, Financiamento</p>
+            </div>
+        </section>
+
+        <!-- Seção de IA Generativa -->
+        <section class="tab-content" id="scripts-personalizados" style="display:none;">
+            <h2>Assistente de Vendas</h2>
+
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Digite sua demanda ou dúvida...">
+                <button onclick="sendInput()">Enviar</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Localiza. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para abrir as abas do dashboard
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            var tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Função para enviar o input (pode ser integrado com a IA generativa)
+        function sendInput() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput) {
+                alert('Demanda enviada: ' + userInput);
+                document.getElementById('user-input').value = ''; // Limpa o campo
+            } else {
+                alert('Por favor, digite uma demanda ou dúvida.');
+            }
+        }
+
+        // Função para manter o rodapé fixo
+        window.addEventListener('load', function() {
+            const footer = document.querySelector('footer');
+            footer.style.position = 'fixed';
+            footer.style.bottom = '0';
+            footer.style.width = '100%';
+        });
+    </script>
+</body>
+</html>
